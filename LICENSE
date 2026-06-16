@@ -1,0 +1,19 @@
+Licensing
+=========
+
+This repository mixes prose and short code snippets, licensed separately.
+
+1. PROSE / DOCUMENTATION (all .md text content)
+   Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+   (CC BY-NC-ND 4.0)
+   Full text: https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
+   Summary: you may share with attribution, no commercial use, no derivatives.
+
+2. CODE SNIPPETS (shell commands and configuration fragments)
+   PolyForm Noncommercial License 1.0.0
+   Full text: https://polyformproject.org/licenses/noncommercial/1.0.0/
+   Summary: use, copy, modify for any noncommercial purpose.
+
+For commercial use of either part, contact the author.
+
+Copyright (c) 2026. All rights reserved except as granted above.
