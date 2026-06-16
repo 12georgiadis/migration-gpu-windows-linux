@@ -172,6 +172,7 @@ Hypothèse clé qui réduit le coût : **les gros volumes de données ne bougent
 
 - `README.md` : cette étude de décision.
 - `GUIDE-SOUVERAINETE.md` : alternatives open-source / auto-hébergées à Adobe, Microsoft et Parsec, et la réalité d'Adobe sous Wine (vérifiée).
+- `PILOTER-AGENTS-CLAUDE-CODE-LINUX.md` : piloter plusieurs agents Claude Code sur Linux (cmux est macOS-only) et les alternatives natives (Zellij, Claude Squad).
 
 ## Licence
 
