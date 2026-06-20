@@ -1,10 +1,10 @@
-# Poste de travail souverain sur Linux : quitter Adobe, Microsoft et Parsec
+# Poste de travail autonome sur Linux : quitter Adobe, Microsoft et Parsec
 
 **Guide, juin 2026.** Compagnon de l'étude de migration GPU Windows vers Ubuntu. Objectif : un poste créatif sans logiciel propriétaire à télémétrie, ou au minimum sans dépendance structurelle à Microsoft/Adobe/Google. Cible : créateur solo pragmatique, pas paranoïaque, qui veut sortir des écosystèmes fermés sans devenir administrateur système à plein temps.
 
 Versions et faits vérifiés par recherche web de juin 2026 (la section Adobe a fait l'objet d'une vérification adversariale). Les versions évoluent vite : revérifier au moment d'agir.
 
-> Note de cadrage : "souverain" ne veut pas dire "tout auto-hébergé". Le bon curseur, c'est posséder ses données et ne pas dépendre d'un acteur unique, pas réimplémenter une infra d'entreprise. Plusieurs fois dans ce guide, la recommandation pragmatique sera de NE PAS auto-héberger (mail) ou de NE PAS pousser le curseur (Qubes/Tails).
+> Note de cadrage : "autonome" ne veut pas dire "tout auto-hébergé". Le bon curseur, c'est posséder ses données et ne pas dépendre d'un acteur unique, pas réimplémenter une infra d'entreprise. Plusieurs fois dans ce guide, la recommandation pragmatique sera de NE PAS auto-héberger (mail) ou de NE PAS pousser le curseur (Qubes/Tails).
 
 ---
 
@@ -55,9 +55,9 @@ Détails pratiques :
 - **L'outil qui marche pour les CC récentes = un build Wine patché** (scripts "wine-adobe-installers", winetricks avec vkd3d/msxml3/corefonts), **pas Wine vanilla ni CrossOver**. CrossOver ne couvre plus correctement les CC récentes (il reste bon pour CS6 et antérieurs).
 - **Photoshop sous Wine : utiliser X11, pas Wayland** (Wayland casse le drag-and-drop et fait flickerer). Camera Raw et les features IA peuvent planter selon les drivers GPU.
 - **Premiere et After Effects : ne même pas essayer.** Pas de GPU/CUDA, codecs et sync cassés, et PP 2025 a une UI Direct2D inaffichable sous Wine. After Effects est "encore pire". Personne ne fait de vidéo pro sous Wine.
-- **Nuance souveraineté importante** : Adobe sous Wine reste du logiciel propriétaire avec sa télémétrie. Wine ne te rend pas souverain, il te rend juste indépendant de Windows. Ce n'est pas la même chose.
+- **Nuance autonomie importante** : Adobe sous Wine reste du logiciel propriétaire avec sa télémétrie. Wine ne te rend pas autonome, il te rend juste indépendant de Windows. Ce n'est pas la même chose.
 
-### 1.3 L'option "garder Adobe mais souverain" : VM Windows + GPU passthrough
+### 1.3 L'option "garder Adobe mais autonome" : VM Windows + GPU passthrough
 
 C'est la seule voie propre pour garder After Effects (irremplaçable) tout en gardant un hôte Linux sans aucun Adobe. Principe : IOMMU (VT-d / AMD-Vi) mappe le GPU directement dans une VM Windows 11, qui en prend le contrôle exclusif avec des perfs quasi-natives (CUDA/NVENC inclus). Resolve, Photoshop, Illustrator y tournent "genuinely native". Heiko Sieger (12 ans de passthrough) y édite du 4K/8K en production.
 
@@ -72,7 +72,7 @@ C'est la seule voie propre pour garder After Effects (irremplaçable) tout en ga
 Trois patterns, aucun ne passe par Wine pour la vidéo :
 1. **Full switch natif** : Resolve + Fusion + darktable + Krita/GIMP + Reaper. Choix dominant et croissant, porté par la maturité de Resolve.
 2. **Dual-boot** : Linux au quotidien, reboot Windows pour Adobe quand strictement nécessaire. Pragmatique, le filet de sécurité le plus simple.
-3. **VM passthrough** : hôte Linux souverain + VM Windows pour les 2-3 tâches Adobe irremplaçables (surtout After Effects).
+3. **VM passthrough** : hôte Linux autonome + VM Windows pour les 2-3 tâches Adobe irremplaçables (surtout After Effects).
 
 ---
 
@@ -85,7 +85,7 @@ Trois patterns, aucun ne passe par Wine pour la vidéo :
 | Sync médias entre machines | **Syncthing** (P2P, zéro serveur) | Faible |
 | Cloud / partage externe (option) | **Nextcloud** (pack complet) ou **Seafile** (sync rapide + liens) | Moyenne |
 | Visio | **Jitsi Meet** (lien sans compte) | Faible |
-| Chat d'équipe (option) | **Element / Matrix** (E2E) si vrai besoin Slack/Teams souverain | Élevée |
+| Chat d'équipe (option) | **Element / Matrix** (E2E) si vrai besoin Slack/Teams autonome | Élevée |
 | Notes / docs | **Obsidian + Syncthing** (Markdown que tu possèdes) | Faible |
 | Navigateur | **LibreWolf** (principal) + **Mullvad Browser** (sensible) | Faible |
 | Recherche | **Brave Search** (quotidien) + **SearXNG** auto-hébergé (contrôle total) | Faible |
@@ -93,7 +93,7 @@ Trois patterns, aucun ne passe par Wine pour la vidéo :
 | IA / Copilot | **Open WebUI** au-dessus d'**Ollama** local (Mistral 24B pour le français) | Faible |
 
 Les trois décisions qui comptent :
-1. **N'auto-héberge PAS ton mail.** C'est le seul vrai piège. Gmail est passé en novembre 2025 à un statut binaire Pass/Fail (zéro marge), les IP de VPS bon marché sont pré-blacklistées Spamhaus, Outlook bloque sur listing, et c'est 2 à 5 h/mois de maintenance. Un fournisseur respectueux suisse ou allemand (Infomaniak, Mailbox.org) donne 95 % de la souveraineté pour 5 % de l'effort. Si on tient à recevoir en auto-hébergé : relayer l'envoi via un service transactionnel (Postmark, SES) pour éviter le problème de réputation IP.
+1. **N'auto-héberge PAS ton mail.** C'est le seul vrai piège. Gmail est passé en novembre 2025 à un statut binaire Pass/Fail (zéro marge), les IP de VPS bon marché sont pré-blacklistées Spamhaus, Outlook bloque sur listing, et c'est 2 à 5 h/mois de maintenance. Un fournisseur respectueux suisse ou allemand (Infomaniak, Mailbox.org) donne 95 % de la autonomie pour 5 % de l'effort. Si on tient à recevoir en auto-hébergé : relayer l'envoi via un service transactionnel (Postmark, SES) pour éviter le problème de réputation IP.
 2. **Syncthing est le pilier sync, pas Nextcloud.** Syncthing synchronise des dossiers entre tes machines en P2P direct, sans serveur. Nextcloud est un "Google Workspace à soi" (partage externe, apps) : ne l'ajouter que si on utilise vraiment ses apps annexes.
 3. **Pour la bureautique avec des collaborateurs sous Office** : OnlyOffice gagne (OOXML natif, fidélité de rendu supérieure). Aucune suite libre ne gère les macros VBA complexes : à tester si on en dépend.
 
@@ -116,11 +116,11 @@ Parsec ne supporte pas l'hôte Linux. AnyDesk passe par ses serveurs. Les deux s
 
 **LA réponse covert à Parsec pour piloter un GPU Linux : Sunshine (hôte) + Moonlight (client).** Open-source intégral, NVENC/AV1 sur RTX 4090/5090, latence type Parsec, 100 % peer-to-peer (aucun serveur tiers). Hôte Linux headless sans écran : soit un dummy plug HDMI à 6 €, soit un display virtuel via EDID firmware (driver NVIDIA 550+). Le tout passe dans un VPN privé. **RustDesk self-hosted** est le complément pour l'admin classique (mais sans NVENC, donc pas pour le travail GPU interactif).
 
-### La couche réseau souveraine (le vrai "100 % covert")
+### La couche réseau autonome (le vrai "100 % covert")
 
-Un VPN mesh pratique repose souvent sur un plan de contrôle propriétaire (le serveur de coordination voit les métadonnées de connexion, pas le contenu, qui reste chiffré E2E). Pour être pleinement souverain :
+Un VPN mesh pratique repose souvent sur un plan de contrôle propriétaire (le serveur de coordination voit les métadonnées de connexion, pas le contenu, qui reste chiffré E2E). Pour être pleinement autonome :
 
-| Solution | Plan de contrôle | Auto-hébergé | NAT traversal | Souveraineté |
+| Solution | Plan de contrôle | Auto-hébergé | NAT traversal | Autonomie |
 |---|---|---|---|---|
 | VPN mesh grand public (type Tailscale) | hébergé par l'éditeur | client open, serveur non | oui | Partielle |
 | **Headscale** | **auto-hébergé** | oui (BSD-3) | oui | Complète |
@@ -129,7 +129,7 @@ Un VPN mesh pratique repose souvent sur un plan de contrôle propriétaire (le s
 
 Avis franc : pour la grande majorité des usages, un VPN mesh grand public suffit (trafic chiffré E2E, seul le plan de contrôle voit les métadonnées). Pour être vraiment covert (par principe ou par besoin), basculer le plan de coordination en auto-hébergé : **Headscale** (on garde les mêmes clients, on change juste le serveur de coordination) ou **NetBird** (stack indépendant, interface web moderne).
 
-**Stack remote souverain recommandé** : Sunshine + Moonlight (travail GPU) + RustDesk self-hosted (admin) + réseau WireGuard via Headscale ou NetBird auto-hébergé sur une machine always-on.
+**Stack remote autonome recommandé** : Sunshine + Moonlight (travail GPU) + RustDesk self-hosted (admin) + réseau WireGuard via Headscale ou NetBird auto-hébergé sur une machine always-on.
 
 ---
 
@@ -143,17 +143,17 @@ C'est le seul vrai arbitrage du poste, et il dépend de la priorité :
 
 À éviter pour un poste GPU créatif : **Qubes OS / Tails / Whonix** (le passthrough PCI pour le GPU est complexe ou impossible, on perd son outil de travail pour une sécurité dont on n'a pas l'usage). C'est de la paranoïa contre-productive ici.
 
-Synthèse : **Ubuntu pour coller au stack NVIDIA pro, Fedora/Pop!_OS pour la fraîcheur kernel + zéro télémétrie.** Sur Blackwell, les trois fonctionnent ; le choix est une question de curseur entre alignement entreprise et souveraineté/fraîcheur.
+Synthèse : **Ubuntu pour coller au stack NVIDIA pro, Fedora/Pop!_OS pour la fraîcheur kernel + zéro télémétrie.** Sur Blackwell, les trois fonctionnent ; le choix est une question de curseur entre alignement entreprise et autonomie/fraîcheur.
 
 ---
 
 ## 5. Le verdict covert : trois niveaux de pureté
 
-Choisir en conscience, du plus souverain au plus pragmatique :
+Choisir en conscience, du plus autonome au plus pragmatique :
 
-1. **100 % open-source** : Fedora/Pop!_OS + Resolve (gratuit) + Blender + GIMP/Krita + darktable + Ardour + Sunshine/Moonlight + Headscale + LibreOffice + Syncthing + Vaultwarden + Open WebUI. On accepte les trous (motion design AE, CMYK pro). Souveraineté maximale.
-2. **Souverain "pratique"** (recommandé pour un pro) : idem, mais on s'autorise des logiciels propriétaires *natifs et sans abonnement* (Resolve Studio 295 $, Reaper 60 $) et un fournisseur mail respectueux plutôt que l'auto-hébergement. 95 % de la souveraineté, 20 % de l'effort.
-3. **Transition douce** : hôte Linux souverain + VM Windows à passthrough GPU pour les 2-3 tâches Adobe irremplaçables (surtout After Effects), ou dual-boot. On garde Adobe le temps de s'en sevrer.
+1. **100 % open-source** : Fedora/Pop!_OS + Resolve (gratuit) + Blender + GIMP/Krita + darktable + Ardour + Sunshine/Moonlight + Headscale + LibreOffice + Syncthing + Vaultwarden + Open WebUI. On accepte les trous (motion design AE, CMYK pro). Autonomie maximale.
+2. **Autonome "pratique"** (recommandé pour un pro) : idem, mais on s'autorise des logiciels propriétaires *natifs et sans abonnement* (Resolve Studio 295 $, Reaper 60 $) et un fournisseur mail respectueux plutôt que l'auto-hébergement. 95 % de la autonomie, 20 % de l'effort.
+3. **Transition douce** : hôte Linux autonome + VM Windows à passthrough GPU pour les 2-3 tâches Adobe irremplaçables (surtout After Effects), ou dual-boot. On garde Adobe le temps de s'en sevrer.
 
 **La vérité nette** : on peut bâtir un poste créatif Linux quasi complet en natif aujourd'hui. Les deux seuls points qui forcent encore un compromis sont **After Effects (motion design)** et le **CMYK pro / Generative Fill de Photoshop**. Pour le reste, le natif Linux est mûr, et le bureau distant + le réseau peuvent être rendus 100 % auto-hébergés. La seule chose que Wine apporte vraiment, c'est Photoshop ; pour la vidéo, c'est natif (Resolve) ou VM passthrough, jamais Wine.
 
@@ -161,7 +161,7 @@ Choisir en conscience, du plus souverain au plus pragmatique :
 
 ## Sources
 
-Recherche web de juin 2026, vérification adversariale sur la section Adobe. Références principales : DaVinci Resolve 21 (petapixel, pugetsystems pour les codecs), percée Wine/Photoshop janvier 2026 (phoronix, tomshardware, ghacks), VM passthrough et reset bug Blackwell (looking-glass.io, level1techs, tomshardware), darktable/GIMP/Krita/Inkscape/Scribus/Reaper (sites officiels), stack souverain (privacyguides, itsfoss, syncthing.net, vaultwarden, open-webui), remote/réseau (lizardbyte Sunshine, moonlight-stream, rustdesk.com, headscale, netbird.io).
+Recherche web de juin 2026, vérification adversariale sur la section Adobe. Références principales : DaVinci Resolve 21 (petapixel, pugetsystems pour les codecs), percée Wine/Photoshop janvier 2026 (phoronix, tomshardware, ghacks), VM passthrough et reset bug Blackwell (looking-glass.io, level1techs, tomshardware), darktable/GIMP/Krita/Inkscape/Scribus/Reaper (sites officiels), stack autonome (privacyguides, itsfoss, syncthing.net, vaultwarden, open-webui), remote/réseau (lizardbyte Sunshine, moonlight-stream, rustdesk.com, headscale, netbird.io).
 
 ## Licence
 

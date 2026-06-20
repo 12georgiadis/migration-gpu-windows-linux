@@ -78,7 +78,7 @@ NGC + `nvidia-container-toolkit` + NVIDIA AI Workbench = environnements GPU vers
 | Outil | Verdict | Alternative Linux | Note |
 |---|---|---|---|
 | **Topaz Video AI / Photo AI** | **PERDU** | SeedVR2, SUPIR, Real-ESRGAN, chaiNNer | Pas de version Linux (beta abandonnée en 2024). Seul Nyx (denoise temporel) est un manque difficilement substituable, à louer en burst sur Windows/Mac. |
-| **Adobe CC** (Pr / Ae / Ps / Ai / Id) | **PERDU** (Ps = CONTOURNEMENT fragile) | DaVinci Resolve, Blackmagic Fusion, Krita, GIMP, Inkscape, Scribus, darktable | Aucune version Linux. Wine non fiable pour la vidéo. Voir le guide souveraineté pour le détail Wine/VM. |
+| **Adobe CC** (Pr / Ae / Ps / Ai / Id) | **PERDU** (Ps = CONTOURNEMENT fragile) | DaVinci Resolve, Blackmagic Fusion, Krita, GIMP, Inkscape, Scribus, darktable | Aucune version Linux. Wine non fiable pour la vidéo. Voir le guide autonomie pour le détail Wine/VM. |
 | **DaVinci Resolve Studio** | **PERSISTE (réserves)** | natif | Installable sous Ubuntu (`makeresolvedeb`). H.264/H.265 via NVENC/NVDEC NVIDIA uniquement : tester ses rushes réels. |
 | Blender 5.x | **PERSISTE (meilleur)** | natif | CUDA/OptiX excellents. |
 | Nuke / Fusion | **PERSISTE / CONTOURNEMENT** | Fusion natif Ubuntu ; Nuke officiellement Rocky 9 | Fusion couvre le compositing nodal en natif. |
@@ -105,7 +105,7 @@ NGC + `nvidia-container-toolkit` + NVIDIA AI Workbench = environnements GPU vers
 4. **Coût logiciel : 0 €** : l'arsenal des stations pro sans le capex hardware.
 5. **Headless-first natif** : Linux est conçu pour les serveurs sans écran ; Windows le tolère.
 6. **Réversibilité totale via dual-boot** : on ne détruit rien pour essayer.
-7. **Souveraineté** : zéro télémétrie par défaut, pas de compte propriétaire obligatoire, auto-hébergement possible de bout en bout (voir guide dédié).
+7. **Autonomie** : zéro télémétrie par défaut, pas de compte propriétaire obligatoire, auto-hébergement possible de bout en bout (voir guide dédié).
 
 ## 5. Les MOINS et ce qu'on perd
 
@@ -154,7 +154,7 @@ Hypothèse clé qui réduit le coût : **les gros volumes de données ne bougent
 4. **Garder le poste de finition sous Windows** (ou dual-boot) tant que la finition n'est pas relogée.
 5. Si concluant, **généraliser au calcul** ; sinon **revenir en arrière** (c'était réversible), à coût quasi nul.
 
-**La part honnête** : cette migration est séduisante, techniquement saine, alignée avec une logique de souveraineté, mais c'est une **optimisation, pas une nécessité**. Une install Windows qui tourne déjà n'est pas un problème. Ne pas laisser la migration devenir du yak-shaving d'infra qui mange l'attention créative. Le pilote dual-boot est l'investissement juste : assez pour décider sur preuve, assez petit pour ne rien risquer.
+**La part honnête** : cette migration est séduisante, techniquement saine, alignée avec une logique de autonomie, mais c'est une **optimisation, pas une nécessité**. Une install Windows qui tourne déjà n'est pas un problème. Ne pas laisser la migration devenir du yak-shaving d'infra qui mange l'attention créative. Le pilote dual-boot est l'investissement juste : assez pour décider sur preuve, assez petit pour ne rien risquer.
 
 ---
 
@@ -171,7 +171,7 @@ Hypothèse clé qui réduit le coût : **les gros volumes de données ne bougent
 ## Documents
 
 - `README.md` : cette étude de décision.
-- `GUIDE-SOUVERAINETE.md` : alternatives open-source / auto-hébergées à Adobe, Microsoft et Parsec, et la réalité d'Adobe sous Wine (vérifiée).
+- `GUIDE-AUTONOMIE.md` : alternatives open-source / auto-hébergées à Adobe, Microsoft et Parsec, et la réalité d'Adobe sous Wine (vérifiée).
 - `PILOTER-AGENTS-CLAUDE-CODE-LINUX.md` : piloter plusieurs agents Claude Code sur Linux (cmux est macOS-only) et les alternatives natives (Zellij, Claude Squad).
 
 ## Licence
