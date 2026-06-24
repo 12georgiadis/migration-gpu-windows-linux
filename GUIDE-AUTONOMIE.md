@@ -2,7 +2,7 @@
 
 **Guide, juin 2026.** Compagnon de l'étude de migration GPU Windows vers Ubuntu. Objectif : un poste créatif sans logiciel propriétaire à télémétrie, ou au minimum sans dépendance structurelle à Microsoft/Adobe/Google. Cible : créateur solo pragmatique, pas paranoïaque, qui veut sortir des écosystèmes fermés sans devenir administrateur système à plein temps.
 
-Versions et faits vérifiés par recherche web de juin 2026 (la section Adobe a fait l'objet d'une vérification adversariale). Les versions évoluent vite : revérifier au moment d'agir.
+Versions et faits à jour de juin 2026. Les versions évoluent vite : revérifier au moment d'agir.
 
 > Note de cadrage : "autonome" ne veut pas dire "tout auto-hébergé". Le bon curseur, c'est posséder ses données et ne pas dépendre d'un acteur unique, pas réimplémenter une infra d'entreprise. Plusieurs fois dans ce guide, la recommandation pragmatique sera de NE PAS auto-héberger (mail) ou de NE PAS pousser le curseur (Qubes/Tails).
 
@@ -161,7 +161,7 @@ Choisir en conscience, du plus autonome au plus pragmatique :
 
 ## Sources
 
-Recherche web de juin 2026, vérification adversariale sur la section Adobe. Références principales : DaVinci Resolve 21 (petapixel, pugetsystems pour les codecs), percée Wine/Photoshop janvier 2026 (phoronix, tomshardware, ghacks), VM passthrough et reset bug Blackwell (looking-glass.io, level1techs, tomshardware), darktable/GIMP/Krita/Inkscape/Scribus/Reaper (sites officiels), stack autonome (privacyguides, itsfoss, syncthing.net, vaultwarden, open-webui), remote/réseau (lizardbyte Sunshine, moonlight-stream, rustdesk.com, headscale, netbird.io).
+Références principales : DaVinci Resolve 21 (petapixel, pugetsystems pour les codecs), percée Wine/Photoshop janvier 2026 (phoronix, tomshardware, ghacks), VM passthrough et reset bug Blackwell (looking-glass.io, level1techs, tomshardware), darktable/GIMP/Krita/Inkscape/Scribus/Reaper (sites officiels), stack autonome (privacyguides, itsfoss, syncthing.net, vaultwarden, open-webui), remote/réseau (lizardbyte Sunshine, moonlight-stream, rustdesk.com, headscale, netbird.io).
 
 ## Licence
 
